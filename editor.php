@@ -116,9 +116,9 @@ break;
 						// also we can add direct links to each text file to download
 						// don't add a link for the currently open file
 						if ( $gettest == $txtfile ) {
-						echo '<tr><td>'.$txtfile.'</td><td><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td></tr>';
+						echo '<tr><td>'.$txtfile.'</td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td></tr>';
 						} else {
-						echo '<tr><td><a href="editor.php?p='.$txtfile.'">'.$txtfile.'</a></td><td><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td></tr>';
+						echo '<tr><td><a href="editor.php?p='.$txtfile.'">'.$txtfile.'</a></td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td></tr>';
 						}
 						}
 						//</ul>
@@ -141,9 +141,8 @@ break;
 						}</script>
 						<tr><td>
 						<button onclick="newFile()">New File</button>
-						</td></tr>
-<tr><td>
-<button onclick="renameFile()" align="right">Rename file</button>
+						</td><td>
+<button onclick="renameFile()" align="right">Rename</button>
 </td></tr>
 						</table>
 				</div>
