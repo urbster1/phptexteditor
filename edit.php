@@ -155,7 +155,9 @@ if (isset($newdata)) {
 // open file  
 $fw = fopen($filename, 'w') or die('Could not open file!'); 
 // write to file 
-// added stripslashes to $newdata 
+// added stripslashes to $newdata
+// strip tags if someone is using html or php tags that is a no-no
+$newdata = strip_tags($newdata);
 $fb = fwrite($fw,stripslashes($newdata)) or die('Could not write to file'); 
 // close file 
 fclose($fw);
