@@ -103,7 +103,7 @@ break;
 					</form>
 				</div>
 				<div class="menu-view">
-				<font style="font-size: 70%; text-align: center;"><center>Saved Files - (x) to delete, DL to download</center></font>
+				<font style="font-size: 70%; text-align: center;"><center>Saved Files - (x) to delete, DL to download, V to view</center></font>
 					<table align="center">';
 						//<ul id="notes-list">';
 						// get list of txt files (I think this works)
@@ -116,9 +116,9 @@ break;
 						// also we can add direct links to each text file to download
 						// don't add a link for the currently open file
 						if ( $gettest == $txtfile ) {
-						echo '<tr><td>'.$txtfile.'</td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td><td><a href="view.php?p='.$txtfile.'">V</a></td></tr>';
+						echo '<tr><td>'.$txtfile.'</td><td align="center"><a href="delete.php?p='.$txtfile.'" style="text-decoration: none;"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td><td><a href="view.php?p='.$txtfile.'">V</a></td></tr>';
 						} else {
-						echo '<tr><td><a href="edit.php?p='.$txtfile.'">'.$txtfile.'</a></td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td><td><a href="view.php?p='.$txtfile.'">V</a></td></tr>';
+						echo '<tr><td><a href="edit.php?p='.$txtfile.'">'.$txtfile.'</a></td><td align="center"><a href="delete.php?p='.$txtfile.'" style="text-decoration: none;"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td><td><a href="view.php?p='.$txtfile.'">V</a></td></tr>';
 						}
 						}
 						//</ul>
