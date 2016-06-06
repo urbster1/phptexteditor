@@ -48,10 +48,10 @@ echo '<script>var renamed = prompt("There is already a file named that! Try agai
 							if (renamed != "" && renamed != filename) {
 								var renamed = renamed.toLowerCase();
 								var renamed = renamed.replace(/\s/g, "");
-								window.location = "editor.php?p='.$gettext.'&renamed=" + renamed;
+								window.location = "edit.php?p='.$gettext.'&renamed=" + renamed;
 								} else {
 								alert("Could not rename file");
-								window.location = "editor.php";
+								window.location = "edit.php";
 								}
 							</script>';
 $renamed = "";
@@ -66,7 +66,7 @@ rename($filename,$renamedFile);
 $filename = $renamedFile;
 // actually I give up and just want to reload with the new filename
 // duhh I think this should work
-echo '<script>window.location = "editor.php?p='.$renamed.'"</script>';
+echo '<script>window.location = "edit.php?p='.$renamed.'"</script>';
 }
 }
 // now open the file
@@ -90,7 +90,7 @@ foreach(glob('txt/*.txt') as $txtfile)
 // get filename only
 $txtfile = basename($txtfile,".txt");
 
-echo '<script>window.location = "editor.php?p='.$txtfile.'"</script>';
+echo '<script>window.location = "edit.php?p='.$txtfile.'"</script>';
 break;
 }
 }
@@ -116,9 +116,9 @@ break;
 						// also we can add direct links to each text file to download
 						// don't add a link for the currently open file
 						if ( $gettest == $txtfile ) {
-						echo '<tr><td>'.$txtfile.'</td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td></tr>';
+						echo '<tr><td>'.$txtfile.'</td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td><td><a href="view.php?p='.$txtfile.'">V</a></td></tr>';
 						} else {
-						echo '<tr><td><a href="editor.php?p='.$txtfile.'">'.$txtfile.'</a></td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td></tr>';
+						echo '<tr><td><a href="edit.php?p='.$txtfile.'">'.$txtfile.'</a></td><td align="center"><a href="delete.php?p='.$txtfile.'"><font color="red">(x)</font></a></td><td><a href="txt/'.$txtfile.'.txt">DL</a></td><td><a href="view.php?p='.$txtfile.'">V</a></td></tr>';
 						}
 						}
 						//</ul>
@@ -128,7 +128,7 @@ break;
 							if (txtfile != "") {
 								var txtfile = txtfile.toLowerCase();
 								var txtfile = txtfile.replace(/\s/g, "");
-								window.location = "editor.php?p=" + txtfile;
+								window.location = "edit.php?p=" + txtfile;
 							}
 						}
 						function renameFile() {
@@ -136,7 +136,7 @@ break;
 							if (renamed != "") {
 								var renamed = renamed.toLowerCase();
 								var renamed = renamed.replace(/\s/g, "");
-								window.location = "editor.php?p='.$gettest.'&renamed=" + renamed;
+								window.location = "edit.php?p='.$gettest.'&renamed=" + renamed;
 							}
 						}</script>
 						<tr><td>
