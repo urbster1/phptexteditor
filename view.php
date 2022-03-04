@@ -1,15 +1,15 @@
-<!DOCTYPE HTML>
+<?php
+$gettest = $_GET['p'];
+echo '<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="utf-8">
- 		<title>Text Viewer</title>
+ 		<title>'.$gettest.'</title>
 		<meta name="description" content="Viewer">
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="styles.css">
-	</head>
-<?php
+	</head>';
 // first we need to see if we actually GET anything
-$gettest = $_GET['p'];
 if ( isset($gettest) ){
 // THEN do this shit
 // need to lowercase the filename
@@ -18,17 +18,19 @@ $gettest = strtolower($gettest);
 $gettest = preg_replace('/\s+/', '', $gettest);
 // set file to read 
 $filename ='txt/'.$gettest.'.txt';
+$data = "not found";
 // check if file exists
 if (file_exists($filename)) {
 // now open the file
-$fh = @fopen($filename, "r");
+$fh = @fopen($filename, "r") or die("Unable to open file!<br>");
 // read file contents
 $data = @fread($fh, filesize($filename));
 // then close it
   fclose($fh);
+$data = nl2br(base64_decode($data));
 }
 echo '<body style="font-family: monospace;">';
-echo nl2br($data);
+echo $data;
 echo '</body>';
 // and if we got no p variable don't do anything
 } else {
